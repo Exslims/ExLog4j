@@ -9,6 +9,6 @@
         <artifactId>ExLog4j</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-
+    <packaging>jar</packaging>
     <artifactId>exlog4j-core</artifactId>
 </project>
