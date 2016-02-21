@@ -22,12 +22,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="exlog4j-configs" />
         <module name="exlog4j-core" />
         <module name="exlog4j-parsers" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="ExLog4j" target="1.5" />
+      <module name="exlog4j-configs" target="1.5" />
       <module name="exlog4j-core" target="1.5" />
       <module name="exlog4j-parsers" target="1.5" />
     </bytecodeTargetLevel>

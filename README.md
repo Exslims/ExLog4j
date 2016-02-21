@@ -11,11 +11,11 @@ ExLog4j - фреймворк логгирования под Java. Сочета�
 ![alt tag](http://i.imgur.com/0mjYiLF.png)
 
 Диаграмма классов(pre alfa):
-![alt tag](http://i.imgur.com/Y2gaZnU.png)
+![alt tag](http://i.imgur.com/5T4CEzw.png)
 
 В большом разрешении:
 
-http://i.imgur.com/Y2gaZnU.png
+http://i.imgur.com/5T4CEzw.png
 
 # Возможности
 

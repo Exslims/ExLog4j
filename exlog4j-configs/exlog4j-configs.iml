@@ -11,7 +11,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="exlog4j-configs" />
     <orderEntry type="module" module-name="exlog4j-parsers" />
   </component>
 </module>

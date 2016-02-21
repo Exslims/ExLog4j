@@ -9,6 +9,7 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/exlog4j-core/pom.xml" />
         <option value="$PROJECT_DIR$/exlog4j-parsers/pom.xml" />
+        <option value="$PROJECT_DIR$/exlog4j-configs/pom.xml" />
       </list>
     </option>
   </component>
