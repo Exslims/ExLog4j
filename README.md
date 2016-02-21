@@ -9,10 +9,12 @@ ExLog4j - фреймворк логгирования под Java. Сочета�
 
 # Описание
 ![alt tag](http://i.imgur.com/0mjYiLF.png)
-Диаграмма классов:
+Диаграмма классов(pre alfa):
 ![alt tag](http://i.imgur.com/H6jSeRJ.png)
 
-[a link])(http://i.imgur.com/H6jSeRJ.png)
+В большом разрешении:
+
+http://i.imgur.com/H6jSeRJ.png
 
 # Возможности
 
