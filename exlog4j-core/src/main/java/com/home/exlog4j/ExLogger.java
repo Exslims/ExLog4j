@@ -1,15 +1,14 @@
 package com.home.exlog4j;
 
-/**
- * Created by Константин on 21.02.2016.
- */
-public class ExLogger {
+public class ExLogger implements Logger {
+
+    private static ConfigsContainer configsContainer = ConfigsContainer.getInstance();
+
     public static ExLogger getLogger(Class targetClass){
         return null;
     }
-
     public static ExLogger getLogger(String customName){
-        return null;
+       return null;
     }
     public static ExLogger getLogger(Class targetClass, String profileName){
         return null;
@@ -18,6 +17,51 @@ public class ExLogger {
         return null;
     }
 
-    //todo
+    public void trace(Object message) {
 
+    }
+
+    public void debug(Object message) {
+
+    }
+
+    public void info(Object message) {
+
+    }
+
+    public void warn(Object message) {
+
+    }
+
+    public void error(Object message) {
+
+    }
+
+    public void error(Object object, Throwable throwable) {
+
+    }
+
+    public void fatal(Object message) {
+
+    }
+
+    public void fatal(Object object, Throwable throwable) {
+
+    }
+
+    public Level getLevel() {
+        return null;
+    }
+
+    public Level setLevel(Level level) {
+        return null;
+    }
+
+    public String getProfileName() {
+        return null;
+    }
+
+    public void setProfileName(String profileName) {
+
+    }
 }
