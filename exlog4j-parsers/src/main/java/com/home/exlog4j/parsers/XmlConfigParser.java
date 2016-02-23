@@ -1,6 +1,6 @@
 package com.home.exlog4j.parsers;
 
-import com.home.exlog4j.ExConfig;
+import com.home.exlog4j.config.ExConfig;
 import com.home.exlog4j.Parser;
 
 import java.util.HashMap;
