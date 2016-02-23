@@ -13,7 +13,7 @@ public class FileAppender extends Appender {
     }
 
     @Override
-    public void sendMessage(String message) {
+    public void sendMessage(String level,String message) {
         //// TODO: 23.02.2016
     }
 

@@ -1,13 +1,23 @@
 package com.home.exlog4j.config;
 
+import java.text.SimpleDateFormat;
+
 /**
- * Created by Константин on 23.02.2016.
+ * %date{yyyy-MM-dd HH:mm:ss} %level %target:position %- %message
  */
 public class PatternLayout {
     private String pattern;
 
+    private SimpleDateFormat dateFormat;
+
     public PatternLayout(String pattern) {
         this.pattern = pattern;
+
+        parse();
+    }
+
+    private void parse() {
+        String[] tokens = pattern.split("%");
     }
 
     public String getFormattedMessage(String token){

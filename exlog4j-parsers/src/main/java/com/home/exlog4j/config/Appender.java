@@ -9,7 +9,7 @@ public abstract class Appender {
         patternLayout = new PatternLayout(pattern);
     }
 
-    public abstract void sendMessage(String message);
+    public abstract void sendMessage(String level, String message);
 
     public PatternLayout getPatternLayout() {
         return patternLayout;
@@ -18,4 +18,5 @@ public abstract class Appender {
     public void setPatternLayout(PatternLayout patternLayout) {
         this.patternLayout = patternLayout;
     }
+
 }

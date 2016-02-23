@@ -9,7 +9,8 @@ import java.util.HashMap;
  * Created by Константин on 21.02.2016.
  */
 public class JsonConfigParser implements Parser {
-    public HashMap<ExConfig, String> getConfigs(String classpath) {
+    private HashMap<String, ExConfig> configs = new HashMap<String, ExConfig>();
+    public HashMap<String, ExConfig> getConfigs(String classpath) {
         return null;
     }
 }

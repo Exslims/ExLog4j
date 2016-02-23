@@ -17,13 +17,13 @@ public class ConfigsContainerTest {
 
     @Test
     public void testGetDefaultConfig() throws Exception {
-        ExConfig defaultConfig = ConfigsContainer.getInstance().getConfig("");
+        ExConfig defaultConfig = ConfigsContainer.getInstance().getConfig("not exist profile");
 
         assertNotNull(defaultConfig);
         assertNotNull(defaultConfig.getAppenderList());
         assertTrue(defaultConfig.getAppenderList().size() == 1);
         assertEquals(defaultConfig.getLogLevel(),"TRACE");
-        assertEquals(defaultConfig.getAppenderList().get(0).getPatternLayout().getPattern(), "%d{yyyy-MM-dd HH:mm:ss} %level %target:position %- %message");
+        assertEquals(defaultConfig.getAppenderList().get(0).getPatternLayout().getPattern(), "%date{yyyy-MM-dd HH:mm:ss} %level %target:position %- %message");
         assertTrue(defaultConfig.getAppenderList().get(0) instanceof ConsoleAppender);
     }
 }

@@ -9,7 +9,7 @@ public class ConsoleAppender extends Appender {
     }
 
     @Override
-    public void sendMessage(String message) {
+    public void sendMessage(String level,String message) {
         System.out.println(patternLayout.getFormattedMessage(message));
     }
 }
