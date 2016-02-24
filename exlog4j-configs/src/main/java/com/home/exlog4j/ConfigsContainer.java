@@ -1,7 +1,7 @@
 package com.home.exlog4j;
 
-import com.home.exlog4j.config.Appender;
-import com.home.exlog4j.config.ConsoleAppender;
+import com.home.exlog4j.config.appenders.Appender;
+import com.home.exlog4j.config.appenders.ConsoleAppender;
 import com.home.exlog4j.config.ExConfig;
 
 import java.util.ArrayList;
@@ -32,7 +32,7 @@ public class ConfigsContainer {
     }
 
     private ExConfig getDefaultConfig(){
-        final Appender consolAppender = new ConsoleAppender("%date{yyyy-MM-dd HH:mm:ss} %level %target:position %- %message");
+        final Appender consolAppender = new ConsoleAppender("%date{yyyy-MM-dd HH:mm:ss} %level %target %- %message");
         return new ExConfig("TRACE",new ArrayList<Appender>(){{add(consolAppender);}});
     }
 }

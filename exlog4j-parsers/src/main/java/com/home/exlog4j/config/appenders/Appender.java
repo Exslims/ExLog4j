@@ -1,4 +1,4 @@
-package com.home.exlog4j.config;
+package com.home.exlog4j.config.appenders;
 
 /**
  * Created by Константин on 23.02.2016.
@@ -9,7 +9,7 @@ public abstract class Appender {
         patternLayout = new PatternLayout(pattern);
     }
 
-    public abstract void sendMessage(String level, String message);
+    public abstract void sendMessage(String level, String message, String target);
 
     public PatternLayout getPatternLayout() {
         return patternLayout;

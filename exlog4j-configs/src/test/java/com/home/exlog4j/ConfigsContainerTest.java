@@ -1,6 +1,6 @@
 package com.home.exlog4j;
 
-import com.home.exlog4j.config.ConsoleAppender;
+import com.home.exlog4j.config.appenders.ConsoleAppender;
 import com.home.exlog4j.config.ExConfig;
 import org.junit.Test;
 
@@ -23,7 +23,7 @@ public class ConfigsContainerTest {
         assertNotNull(defaultConfig.getAppenderList());
         assertTrue(defaultConfig.getAppenderList().size() == 1);
         assertEquals(defaultConfig.getLogLevel(),"TRACE");
-        assertEquals(defaultConfig.getAppenderList().get(0).getPatternLayout().getPattern(), "%date{yyyy-MM-dd HH:mm:ss} %level %target:position %- %message");
+        assertEquals(defaultConfig.getAppenderList().get(0).getPatternLayout().getPattern(), "%date{yyyy-MM-dd HH:mm:ss} %level %target %- %message");
         assertTrue(defaultConfig.getAppenderList().get(0) instanceof ConsoleAppender);
     }
 }

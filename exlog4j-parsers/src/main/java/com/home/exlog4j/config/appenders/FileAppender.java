@@ -1,4 +1,6 @@
-package com.home.exlog4j.config;
+package com.home.exlog4j.config.appenders;
+
+import com.home.exlog4j.config.appenders.Appender;
 
 /**
  * Created by Константин on 23.02.2016.
@@ -13,7 +15,7 @@ public class FileAppender extends Appender {
     }
 
     @Override
-    public void sendMessage(String level,String message) {
+    public void sendMessage(String level,String message,String target) {
         //// TODO: 23.02.2016
     }
 

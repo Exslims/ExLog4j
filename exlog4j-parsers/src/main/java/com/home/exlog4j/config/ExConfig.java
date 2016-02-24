@@ -1,6 +1,7 @@
 package com.home.exlog4j.config;
 
-import java.util.ArrayList;
+import com.home.exlog4j.config.appenders.Appender;
+
 import java.util.List;
 
 /**
@@ -37,5 +38,4 @@ public class ExConfig {
     public void addAppender(Appender appender){
         appenderList.add(appender);
     }
-
 }

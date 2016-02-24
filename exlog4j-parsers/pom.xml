@@ -13,5 +13,11 @@
     <packaging>jar</packaging>
     <artifactId>exlog4j-parsers</artifactId>
 
-    
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 </project>
