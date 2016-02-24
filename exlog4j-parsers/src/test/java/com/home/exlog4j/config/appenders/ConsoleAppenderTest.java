@@ -8,6 +8,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 
@@ -18,6 +19,8 @@ public class ConsoleAppenderTest {
     private final OutputStream stdErr = new ByteArrayOutputStream();
     public static final ConsoleAppender CONSOLE_APPENDER = new ConsoleAppender(LAYOUT);
 
+    private String[] levels = { "OFF" , "FATAL" , "ERROR" , "WARN" , "INFO", "DEBUG" , "TRACE", "ALL" };
+
     @Before
     public void setUpStreams() {
         System.setOut(new PrintStream(stdOut));
@@ -27,6 +30,7 @@ public class ConsoleAppenderTest {
 
     @Test
     public void testSendTraceMessage() throws Exception {
+        this.setUpStreams();
         String traceLevel = "TRACE";
         String target = this.toString();
         String message = "Trace message";
@@ -34,8 +38,6 @@ public class ConsoleAppenderTest {
         String line = traceLevel + " " +  target + " - " + message;
         assertTrue(stdOut.toString().contains(line));
     }
-
-
 
     @Test
     public void testSendErrorMessage() throws Exception {
@@ -58,6 +60,46 @@ public class ConsoleAppenderTest {
         assertTrue(stdErr.toString().contains(line));
     }
 
+    @Test
+    public void testStdOutLevels() {
+        int errorLevelIndex = 2;
+        String currentLevel;
+        for (int index = 0; index < levels.length; index++) {
+            currentLevel = levels[index];
+            String message = currentLevel + " message";
+            CONSOLE_APPENDER.sendMessage(currentLevel, message, this.toString());
+            if (index <= errorLevelIndex)
+                assertFalse(stdOut.toString().contains(message));
+            else
+                assertTrue(stdOut.toString().contains(message));
+        }
+    }
+
+    @Test
+    public void testStdErrLevels() {
+        int errorLevelIndex = 2;
+        String currentLevel;
+        int offLevel = 1;
+        for (int index = offLevel; index < levels.length; index++) {
+            currentLevel = levels[index];
+            String message = currentLevel + " message";
+            CONSOLE_APPENDER.sendMessage(currentLevel, message, this.toString());
+            if (index > errorLevelIndex)
+                assertFalse(stdErr.toString().contains(message));
+            else
+                assertTrue(stdErr.toString().contains(message));
+        }
+    }
+
+    @Test
+    public void testSendOffLevelMessage() {
+        String level = "OFF";
+        String target = this.toString();
+        String message = "Test message";
+        CONSOLE_APPENDER.sendMessage(level, message, target);
+        String line = level + " " +  target + " - " + message;
+        assertFalse(stdOut.toString().contains(line));
+    }
 
     @After
     public void cleanUpStreams() {
