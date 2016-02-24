@@ -2,9 +2,6 @@ package com.home.exlog4j.config.appenders;
 
 import com.home.exlog4j.config.appenders.Appender;
 
-/**
- * Created by Константин on 23.02.2016.
- */
 public class FileAppender extends Appender {
     private String fileName;
     private String maxFileSize;
