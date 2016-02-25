@@ -2,6 +2,7 @@ package com.home.exlog4j.config;
 
 import com.home.exlog4j.config.appenders.Appender;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,6 +19,7 @@ public class ExConfig {
 
     public ExConfig(String logLevel) {
         this.logLevel = logLevel;
+        this.appenderList = new ArrayList<Appender>();
     }
 
     public String getLogLevel() {

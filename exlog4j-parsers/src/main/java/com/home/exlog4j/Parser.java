@@ -8,5 +8,5 @@ import java.util.HashMap;
  * Created by Константин on 21.02.2016.
  */
 public interface Parser {
-    HashMap<String, ExConfig> getConfigs(String classpath);
+    HashMap<String, ExConfig> getConfigs(String path);
 }
