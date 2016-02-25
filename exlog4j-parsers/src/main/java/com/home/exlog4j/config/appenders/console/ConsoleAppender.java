@@ -1,4 +1,4 @@
-package com.home.exlog4j.config.appenders;
+package com.home.exlog4j.config.appenders.console;
 
 import com.home.exlog4j.config.appenders.Appender;
 

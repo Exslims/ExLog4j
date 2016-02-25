@@ -1,6 +1,5 @@
 package com.home.exlog4j.config.appenders.console;
 
-import com.home.exlog4j.config.appenders.ConsoleAppender;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -104,7 +103,7 @@ public class ConsoleAppenderTest {
 
     @After
     public void cleanUpStreams() {
-        System.setOut(null);
-        System.setErr(null);
+        System.setOut(System.out);
+        System.setErr(System.err);
     }
 }

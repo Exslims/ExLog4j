@@ -1,13 +1,12 @@
 package com.home.exlog4j.config;
 
 import com.home.exlog4j.config.appenders.Appender;
-import com.home.exlog4j.config.appenders.ConsoleAppender;
-import com.home.exlog4j.config.appenders.FileAppender;
+import com.home.exlog4j.config.appenders.console.ConsoleAppender;
+import com.home.exlog4j.config.appenders.file.FileAppender;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 import static org.junit.Assert.*;

@@ -1,7 +1,7 @@
 package com.home.exlog4j;
 
 import com.home.exlog4j.config.appenders.Appender;
-import com.home.exlog4j.config.appenders.ConsoleAppender;
+import com.home.exlog4j.config.appenders.console.ConsoleAppender;
 import com.home.exlog4j.config.ExConfig;
 
 import java.util.ArrayList;
