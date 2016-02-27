@@ -9,6 +9,9 @@ import org.junit.rules.TemporaryFolder;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -44,7 +47,10 @@ public class FileAppenderTest {
 
     @Test
     public void testSendMessage() throws Exception {
+        this.fileAppender.setAutoFlush(true);
         this.fileAppender.sendMessage("TRACE" , "HELLO MESSAGE" , this.toString());
+        List<String> lines = Files.readAllLines(Paths.get(fileAppender.getFileName()));
+        assertTrue(lines.size() > 0);
     }
 
     @Test
