@@ -7,15 +7,16 @@ import com.home.exlog4j.config.appenders.console.ConsoleAppender;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
 public class JsonConfigParserTest {
-    private static final String ROOT = "/src/test/java/com/home/exlog4j/";
-    private static final String JSON_CONFIG_PATH = Paths.get(ROOT + "parsers/json/testConfig1.json").toString();
+    private static final String ROOT = Paths.get("src" , "test/java/com/home/exlog4j/").toAbsolutePath().toString();
+    private static final String JSON_CONFIG_PATH = Paths.get(ROOT + "/parsers/json/testConfig1.json").toAbsolutePath().toString();
 
     @Before
     public void before() throws IOException {
