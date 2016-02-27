@@ -11,9 +11,6 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by Константин on 25.02.2016.
- */
 public class ExConfigTest {
     private ExConfig config;
     @Before

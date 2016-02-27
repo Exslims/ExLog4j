@@ -5,9 +5,7 @@ import com.home.exlog4j.config.appenders.Appender;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Константин on 21.02.2016.
- */
+
 public class ExConfig {
     private String logLevel;
     private List<Appender> appenderList;

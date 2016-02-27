@@ -10,9 +10,7 @@ import java.util.Date;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by Константин on 24.02.2016.
- */
+
 public class PatternLayoutTest {
     private PatternLayout patternLayout = new PatternLayout();
     private Date date = new Date(System.currentTimeMillis());

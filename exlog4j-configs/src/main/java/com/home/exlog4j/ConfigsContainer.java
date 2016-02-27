@@ -7,9 +7,6 @@ import com.home.exlog4j.config.ExConfig;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
- * Created by Константин on 21.02.2016.
- */
 public class ConfigsContainer {
     private static ConfigsContainer instance = new ConfigsContainer();
     private ConfigInitializer configInitializer = new ConfigInitializer();

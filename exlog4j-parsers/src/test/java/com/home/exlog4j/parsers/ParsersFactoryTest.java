@@ -4,9 +4,6 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by Константин on 25.02.2016.
- */
 public class ParsersFactoryTest {
 
     @Test

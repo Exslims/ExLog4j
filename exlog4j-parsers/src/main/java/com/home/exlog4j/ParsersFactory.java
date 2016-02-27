@@ -4,9 +4,6 @@ import com.home.exlog4j.parsers.JsonConfigParser;
 import com.home.exlog4j.parsers.PropertiesConfigParser;
 import com.home.exlog4j.parsers.XmlConfigParser;
 
-/**
- * Created by Константин on 21.02.2016.
- */
 public class ParsersFactory {
     private Parser xmlParser = new XmlConfigParser();
     private Parser jsonParser = new JsonConfigParser();
