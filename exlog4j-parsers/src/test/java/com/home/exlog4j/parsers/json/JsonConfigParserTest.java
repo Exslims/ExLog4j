@@ -13,27 +13,13 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Константин on 25.02.2016.
- */
 public class JsonConfigParserTest {
-
-
-
+    private static final String ROOT = "/src/test/java/com/home/exlog4j/";
+    private static final String JSON_CONFIG_PATH = Paths.get(ROOT + "parsers/json/testConfig1.json").toString();
 
     @Before
-    public void before(){
-
-            List<String>  strings = null;
-            try {
-                strings = Files.readAllLines(Paths.get("src" , "test" , "java" , "com" , "home" , "exlog4j" , "parsers" , "json" , "testConfig1.json"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            for (String line : strings)
-                System.out.println(line);
-
+    public void before() throws IOException {
+        Files.readAllLines(Paths.get(JSON_CONFIG_PATH)).stream().forEach(System.out::println);
     }
     @Test
     public void testGetConfigs() throws Exception {
@@ -42,7 +28,6 @@ public class JsonConfigParserTest {
     @Test
     public void testWriteIntoJson(){
         ObjectMapper mapper = new ObjectMapper();
-
         ExConfig config = new ExConfig("INFO");
         List<Appender> appenders = new ArrayList<Appender>();
         appenders.add(new ConsoleAppender("testPattern"));

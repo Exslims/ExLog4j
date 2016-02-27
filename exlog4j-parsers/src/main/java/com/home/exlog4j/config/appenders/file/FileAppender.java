@@ -89,6 +89,13 @@ public class FileAppender extends Appender {
     }
 
     public void setFileName(String fileName) {
+        try {
+            File logFile = new File(fileName);
+            FileOutputStream fileOutputStream = new FileOutputStream(logFile, autoFlush);
+            this.writer =  new PrintWriter(fileOutputStream);
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
         this.fileName = fileName;
     }
 
