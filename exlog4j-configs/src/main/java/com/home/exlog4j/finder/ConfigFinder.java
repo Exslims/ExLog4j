@@ -37,6 +37,7 @@ public class ConfigFinder {
         @Override
         public FileVisitResult visitFile(Path file, BasicFileAttributes attributes) throws IOException {
             System.out.println(file.getFileName().toAbsolutePath().toString());
+            //TODO: добавить реализацию метода
             return FileVisitResult.CONTINUE;
         }
 
