@@ -1,29 +1,25 @@
 package com.home.exlog4j;
 
+import com.home.exlog4j.config.ExConfig;
 import com.home.exlog4j.finder.ConfigFinder;
+import com.home.exlog4j.finder.ConfigNotFoundException;
 import org.junit.Test;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 import static org.junit.Assert.*;
 
 
 public class ConfigFinderTest {
 
+
     @Test
     public void findConfig() {
-        System.out.println(System.getProperty("user.dir"));
-        ConfigFinder finder = new ConfigFinder();
+        ExConfig exConfig = null;
         try {
-            Files.walkFileTree(Paths.get(System.getProperty("user.dir")) , finder);
-        } catch (IOException e) {
+            exConfig = ConfigFinder.find();
+        } catch (ConfigNotFoundException e) {
             e.printStackTrace();
         }
+        assertNotNull(exConfig);
     }
-
 
 }
