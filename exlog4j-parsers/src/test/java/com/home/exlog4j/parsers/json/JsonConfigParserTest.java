@@ -16,7 +16,7 @@ import java.util.List;
 
 public class JsonConfigParserTest {
     private static final String ROOT = Paths.get("src" , "test/java/com/home/exlog4j/").toAbsolutePath().toString();
-    private static final String JSON_CONFIG_PATH = Paths.get(ROOT + "/parsers/json/testConfig1.json").toAbsolutePath().toString();
+    private static final String JSON_CONFIG_PATH = Paths.get(ROOT + "/parsers/json/case1.json").toAbsolutePath().toString();
 
     @Before
     public void before() throws IOException {

@@ -27,7 +27,7 @@ public class PatternLayoutTest {
 
         patternLayout.setPattern("%date{yyyy-MM-dd HH:mm:ss} %level %target %- %message");
         assertEquals(patternLayout.getFormattedMessage("TRACE","Test log",PatternLayoutTest.class.getSimpleName()),
-                dateFormat.format(date) + "  TRACE PatternLayoutTest - Test log ");
+                dateFormat.format(date) + " TRACE PatternLayoutTest - Test log ");
     }
 
     @Test

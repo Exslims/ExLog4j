@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<exlogger>
+    <profile name="profile1">
+        <appender type="console">
+            <pattern>testPattern</pattern>
+        </appender>
+    </profile>
+    <profile name="profile2">
+        <appender type="file">
+            <pattern>testPattern</pattern>
+            <file>
+                <fileName>testName</fileName>
+                <maxFileSize>10MB</maxFileSize>
+                <maxBufferSize>10MB</maxBufferSize>
+                <autoFlush>true</autoFlush>
+            </file>
+        </appender>
+    </profile>
+</exlogger>

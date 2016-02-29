@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:element name="exlogger">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="profile"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="profile">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="appender"/>
+            </xs:sequence>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="appender">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="pattern"/>
+                <xs:element minOccurs="0" ref="file"/>
+            </xs:sequence>
+            <xs:attribute name="type" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="pattern" type="xs:NCName"/>
+    <xs:element name="file">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="fileName"/>
+                <xs:element ref="maxFileSize"/>
+                <xs:element ref="maxBufferSize"/>
+                <xs:element ref="autoFlush"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="fileName" type="xs:NCName"/>
+    <xs:element name="maxFileSize" type="xs:NMTOKEN"/>
+    <xs:element name="maxBufferSize" type="xs:NMTOKEN"/>
+    <xs:element name="autoFlush" type="xs:boolean"/>
+</xs:schema>
