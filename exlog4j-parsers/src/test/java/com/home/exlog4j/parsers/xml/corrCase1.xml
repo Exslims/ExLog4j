@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<exlogger>
+    <profile name="profile1">
+        <appender type="file">
+            <pattern>testPattern</pattern>
+            <file>
+                <fileName>Test</fileName>
+            </file>
+        </appender>
+    </profile>
+</exlogger>

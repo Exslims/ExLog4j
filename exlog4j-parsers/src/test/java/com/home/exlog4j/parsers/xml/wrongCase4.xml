@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<exlogger>
+    <profile name="profile1">
+        <appender type="console">
+        </appender>
+    </profile>
+</exlogger>

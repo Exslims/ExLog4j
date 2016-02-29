@@ -18,7 +18,7 @@
     <xs:element name="appender">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="pattern"/>
+                <xs:element ref="pattern" minOccurs="1" maxOccurs="1"/>
                 <xs:element minOccurs="0" ref="file"/>
             </xs:sequence>
             <xs:attribute name="type" use="required" type="xs:NCName"/>
@@ -28,10 +28,10 @@
     <xs:element name="file">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="fileName"/>
-                <xs:element ref="maxFileSize"/>
-                <xs:element ref="maxBufferSize"/>
-                <xs:element ref="autoFlush"/>
+                <xs:element ref="fileName" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="maxFileSize" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="maxBufferSize" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="autoFlush" minOccurs="0" maxOccurs="1"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
