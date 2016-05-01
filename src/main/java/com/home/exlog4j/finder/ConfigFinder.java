@@ -8,40 +8,21 @@ import java.nio.file.Paths;
 
 public class ConfigFinder {
 
-    private static final String CONFIG_FILENAME = "exlog4j-config";
+    private static final String CONFIG_FILENAME = "exlog4j-config.xml";
 
-    private enum
-    AvailableExtension {
-        XML,JSON
-    }
     public static ExConfig find() throws ConfigNotFoundException {
         ClassLoader rootClassLoader = ExLogger.class.getClassLoader();
         String physicalPath = null;
-        for (AvailableExtension extension : AvailableExtension.values()) {
-            String fileName = CONFIG_FILENAME + "." + extension.toString().toLowerCase();
-            try {
-               physicalPath = rootClassLoader.getResource(fileName).getPath();
-            }
-            catch (NullPointerException e) {
+        try {
+            physicalPath = rootClassLoader.getResource(CONFIG_FILENAME).getPath();
+        } catch (NullPointerException e) {
                 /*NOP*/
-            }
-            if (physicalPath != null) {
-                Path transformedPath = Paths.get(physicalPath.substring(1, physicalPath.length()));
-                Path absolutePath = transformedPath.toAbsolutePath();
-                System.out.println(absolutePath.toString());
-
-                switch (extension) {
-                    case XML: {
-                        //TODO: return XMLConfigParser.parse(path);
-                        break;
-                    }
-
-                    case JSON: {
-                        //TODO: return JSONConfigParser.parse(path);
-                        break;
-                    }
-                }
-            }
+        }
+        if (physicalPath != null) {
+            Path transformedPath = Paths.get(physicalPath.substring(1, physicalPath.length()));
+            Path absolutePath = transformedPath.toAbsolutePath();
+            System.out.println(absolutePath.toString());
+            //TODO: return XMLConfigParser.parse(path);
         }
         throw new ConfigNotFoundException();
     }
