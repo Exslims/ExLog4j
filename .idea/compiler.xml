@@ -17,33 +17,16 @@
       <profile default="true" name="Default" enabled="false">
         <processorPath useClasspath="true" />
       </profile>
-      <profile default="false" name="Annotation profile for exlog4j-configs" enabled="true">
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="exlog4j-configs" />
-      </profile>
-      <profile default="false" name="Annotation profile for exlog4j-core" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="exlog4j-core" />
-      </profile>
-      <profile default="false" name="Annotation profile for exlog4j-parsers" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="exlog4j-parsers" />
+        <module name="ExLog4j" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="ExLog4j" target="1.8" />
-      <module name="exlog4j-configs" target="1.8" />
-      <module name="exlog4j-core" target="1.8" />
-      <module name="exlog4j-parsers" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

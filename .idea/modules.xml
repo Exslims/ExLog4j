@@ -3,9 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ExLog4j.iml" filepath="$PROJECT_DIR$/ExLog4j.iml" />
-      <module fileurl="file://$PROJECT_DIR$/exlog4j-configs/exlog4j-configs.iml" filepath="$PROJECT_DIR$/exlog4j-configs/exlog4j-configs.iml" />
-      <module fileurl="file://$PROJECT_DIR$/exlog4j-core/exlog4j-core.iml" filepath="$PROJECT_DIR$/exlog4j-core/exlog4j-core.iml" />
-      <module fileurl="file://$PROJECT_DIR$/exlog4j-parsers/exlog4j-parsers.iml" filepath="$PROJECT_DIR$/exlog4j-parsers/exlog4j-parsers.iml" />
     </modules>
   </component>
 </project>
