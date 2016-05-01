@@ -22,7 +22,7 @@ public class ConfigsContainer {
     }
 
     public ExConfig getConfig(String profileName){
-        if(configs.size() != 0 && configs.get(profileName) != null) {
+        if(!configs.isEmpty() && configs.get(profileName) != null) {
             return configs.get(profileName);
         }
         else return getDefaultConfig();
