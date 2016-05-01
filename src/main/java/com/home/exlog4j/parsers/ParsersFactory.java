@@ -1,19 +1,32 @@
 package com.home.exlog4j.parsers;
 
+import java.util.HashMap;
+
 public class ParsersFactory {
-    private Parser xmlParser = new XmlConfigParser();
-    private Parser jsonParser = new JsonConfigParser();
-    private Parser propertiesParser = new PropertiesConfigParser();
+    private static HashMap<ParsersType, ParserInitializer> parsers;
 
-    public Parser getXmlParser() {
-        return xmlParser;
+    static{
+        parsers = new HashMap<>();
+
+        register(ParsersType.XML, () -> new XmlConfigParser());
+        register(ParsersType.JSON, () -> new JsonConfigParser());
+        register(ParsersType.PROPERTIES, () -> new PropertiesConfigParser());
+    }
+    /**
+     * Getting parser by file extension
+     * @param key file extension
+     * @return parser
+     */
+    public static Parser getParser(ParsersType key){
+        return parsers.get(key).newInstance();
     }
 
-    public Parser getJsonParser() {
-        return jsonParser;
-    }
-
-    public Parser getPropertiesParser() {
-        return propertiesParser;
+    /**
+     * Add parser to map
+     * @param key file extension
+     * @param parser parser
+     */
+    public static void register(ParsersType key, ParserInitializer parser){
+        parsers.put(key,parser);
     }
 }
