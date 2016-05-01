@@ -30,6 +30,8 @@ public class ConfigsContainer {
 
     private ExConfig getDefaultConfig(){
         final Appender consoleAppender = new ConsoleAppender("%date{yyyy-MM-dd HH:mm:ss} %level %target %- %message");
+        consoleAppender.sendMessage(Level.ERROR.toString() ,
+                "Unable to find or load configuration file, default configuration is loaded" , ConfigsContainer.class.getCanonicalName());
         return new ExConfig("TRACE",new ArrayList<Appender>(){{add(consoleAppender);}});
     }
 }
