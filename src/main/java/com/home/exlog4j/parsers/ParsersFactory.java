@@ -2,6 +2,10 @@ package com.home.exlog4j.parsers;
 
 import java.util.HashMap;
 
+/**
+ * Parsers Factory for {@link com.home.exlog4j.ConfigInitializer}
+ * Contains all existing parser for parse configuration.
+ */
 public class ParsersFactory {
     private static HashMap<ParsersType, ParserInitializer> parsers;
 

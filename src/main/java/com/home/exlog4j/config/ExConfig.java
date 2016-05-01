@@ -5,7 +5,9 @@ import com.home.exlog4j.config.appenders.Appender;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * POJO for configuration
+ */
 public class ExConfig {
     private String logLevel;
     private List<Appender> appenderList;

@@ -4,8 +4,13 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
- * %date{yyyy-MM-dd HH:mm:ss} %level %target %- %message
- * //todo position on log string + separate
+ * Builder of log string.
+ * <h1>Example:</h1>
+ * <h2>
+ *     "%date{yyyy-MM-dd HH:mm:ss} %level %target %message" = "2016-03-17 20:13:43 INFO Logger.class IT'S WORKING"
+ *     "%date{yyyy-MM-dd} %target %level %message" = "2016-03-17 Logger.class INFO IT'S WORKING"
+ *     "%level %target %- %message" = "TRACE PatternLayoutTest - Test log"
+ * </h2>
  */
 public class PatternLayout {
     private String pattern;
@@ -43,6 +48,13 @@ public class PatternLayout {
         }
     }
 
+    /**
+     * Getting formatted message by pattern layout
+     * @param level log level
+     * @param message message
+     * @param target class where the method was called
+     * @return formatted message
+     */
     public String getFormattedMessage(String level,String message, String target){
         StringBuilder builder = new StringBuilder();
         for (String next : priority) {

@@ -7,10 +7,16 @@ import com.home.exlog4j.config.ExConfig;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Singleton object, which contains all {@link ExConfig}
+ */
 public class ConfigsContainer {
     private static ConfigsContainer instance = new ConfigsContainer();
     private ConfigInitializer configInitializer = new ConfigInitializer();
 
+    /**
+     * Map of configs, key is a profile name
+     */
     private HashMap<String,ExConfig> configs;
 
     private ConfigsContainer(){
@@ -21,6 +27,11 @@ public class ConfigsContainer {
         return instance;
     }
 
+    /**
+     * Getting config by profile name from map
+     * @param profileName profile name from configuration
+     * @return config
+     */
     public ExConfig getConfig(String profileName){
         if(!configs.isEmpty() && configs.get(profileName) != null) {
             return configs.get(profileName);
@@ -28,6 +39,11 @@ public class ConfigsContainer {
         else return getDefaultConfig();
     }
 
+    /**
+     * Getting default config if there are no other.
+     * They can not exist because custom configuration has errors or custom configuration doesn't exist
+     * @return default config
+     */
     private ExConfig getDefaultConfig(){
         final Appender consoleAppender = new ConsoleAppender("%date{yyyy-MM-dd HH:mm:ss} %level %target %- %message");
         consoleAppender.sendMessage(Level.ERROR.toString() ,

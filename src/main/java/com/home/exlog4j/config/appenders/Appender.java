@@ -1,6 +1,9 @@
 package com.home.exlog4j.config.appenders;
 
 
+/**
+ * Base class for all appender
+ */
 public abstract class Appender {
     protected PatternLayout patternLayout;
 
