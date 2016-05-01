@@ -25,37 +25,37 @@ public class ExLogger implements Logger {
     }
 
     public void trace(Object message) {
-        this.send(Level.TRACE , message , targetClassName);
+        this.log(Level.TRACE , message , targetClassName);
     }
 
     public void debug(Object message) {
-        this.send(Level.DEBUG , message , targetClassName);
+        this.log(Level.DEBUG , message , targetClassName);
     }
 
     public void info(Object message) {
-        this.send(Level.INFO , message , targetClassName);
+        this.log(Level.INFO , message , targetClassName);
     }
 
     public void warn(Object message) {
-        this.send(Level.WARN , message , targetClassName);
+        this.log(Level.WARN , message , targetClassName);
     }
 
     public void error(Object message) {
-        this.send(Level.ERROR , message , targetClassName);
+        this.log(Level.ERROR , message , targetClassName);
     }
 
     public void error(Object message, Throwable throwable) {
         String fullStackTrace = ExceptionUtils.getFullStackTrace(throwable);
-        this.send(Level.ERROR ,message + ": " + fullStackTrace, targetClassName);
+        this.log(Level.ERROR ,message + ": " + fullStackTrace, targetClassName);
     }
 
     public void fatal(Object message) {
-        this.send(Level.ERROR , message , targetClassName);
+        this.log(Level.ERROR , message , targetClassName);
     }
 
     public void fatal(Object message, Throwable throwable) {
         String fullStackTrace = ExceptionUtils.getFullStackTrace(throwable);
-        this.send(Level.FATAL ,message + ": " + fullStackTrace, targetClassName);
+        this.log(Level.FATAL ,message + ": " + fullStackTrace, targetClassName);
     }
 
     public Level getLevel() {
@@ -75,7 +75,7 @@ public class ExLogger implements Logger {
         this.exConfig = configsContainer.getConfig(profileName);
     }
 
-    private void send(Level level , Object message , String target) {
+    private void log(Level level , Object message , String target) {
         this.exConfig.getAppenderList().stream().forEach((appender ->
                 appender.sendMessage(level.toString() , message.toString() , target))
         );
