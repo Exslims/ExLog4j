@@ -8,7 +8,6 @@ import java.nio.file.Paths;
 
 import static org.junit.Assert.assertTrue;
 
-@Ignore
 public class XSDValidatorTest {
     private static final String ROOT = Paths.get("src" , "test/java/com/home/exlog4j/").toAbsolutePath().toString();
     private String XML_CONFIG_PATH = Paths.get(ROOT + "/parsers/xml/").toAbsolutePath().toString();
@@ -58,10 +57,14 @@ public class XSDValidatorTest {
     public void testValidateCorrectlyCase6() throws Exception {
         assertTrue(XSDValidator.validateXMLSchema(XML_CONFIG_PATH + "/corrCase6.xml",XSD_PATH));
     }
+
+    @Ignore
     @Test
     public void testValidateCorrectlyCase7() throws Exception {
         assertTrue(XSDValidator.validateXMLSchema(XML_CONFIG_PATH + "/corrCase7.xml",XSD_PATH));
     }
+
+    @Ignore
     @Test
     public void testValidateCorrectlyCase8() throws Exception {
         assertTrue(XSDValidator.validateXMLSchema(XML_CONFIG_PATH + "/corrCase8.xml",XSD_PATH));
