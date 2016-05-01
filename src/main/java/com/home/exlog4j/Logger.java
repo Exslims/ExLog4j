@@ -1,7 +1,5 @@
 package com.home.exlog4j;
 
-import com.home.exlog4j.Level;
-
 public interface Logger {
     void trace(Object message);
     void debug(Object message);
@@ -12,7 +10,7 @@ public interface Logger {
     void fatal(Object message);
     void fatal(Object object, Throwable throwable);
     Level getLevel();
-    Level setLevel(Level level);
+    void setLevel(Level level);
     String getProfileName();
     void setProfileName(String profileName);
 }

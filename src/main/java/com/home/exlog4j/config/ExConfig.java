@@ -17,7 +17,7 @@ public class ExConfig {
 
     public ExConfig(String logLevel) {
         this.logLevel = logLevel;
-        this.appenderList = new ArrayList<Appender>();
+        this.appenderList = new ArrayList<>();
     }
 
     public String getLogLevel() {

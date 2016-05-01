@@ -29,7 +29,7 @@ public class ConfigsContainer {
     }
 
     private ExConfig getDefaultConfig(){
-        final Appender consolAppender = new ConsoleAppender("%date{yyyy-MM-dd HH:mm:ss} %level %target %- %message");
-        return new ExConfig("TRACE",new ArrayList<Appender>(){{add(consolAppender);}});
+        final Appender consoleAppender = new ConsoleAppender("%date{yyyy-MM-dd HH:mm:ss} %level %target %- %message");
+        return new ExConfig("TRACE",new ArrayList<Appender>(){{add(consoleAppender);}});
     }
 }
