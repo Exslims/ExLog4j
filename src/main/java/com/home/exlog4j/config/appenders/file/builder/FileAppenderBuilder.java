@@ -1,4 +1,6 @@
-package com.home.exlog4j.config.appenders.file;
+package com.home.exlog4j.config.appenders.file.builder;
+
+import com.home.exlog4j.config.appenders.file.FileAppender;
 
 public class FileAppenderBuilder {
 

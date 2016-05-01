@@ -1,47 +1,48 @@
 package com.home.exlog4j.finder;
 
+import com.home.exlog4j.ExLogger;
 import com.home.exlog4j.config.ExConfig;
 
-import java.io.IOException;
-import java.nio.file.FileVisitResult;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.SimpleFileVisitor;
-import java.nio.file.attribute.BasicFileAttributes;
-import java.util.Objects;
 
 public class ConfigFinder {
 
-    public static final String ROOT = System.getProperty("user.dir");
+    private static final String CONFIG_FILENAME = "exlog4j-config";
 
-    public static ExConfig find() throws ConfigNotFoundException {
-        ExConfig exConfig;
-        FileVisitor fileVisitor = new FileVisitor();
-        try {
-            Files.walkFileTree(Paths.get(ROOT) , fileVisitor);
-            exConfig = fileVisitor.getResult();
-        } catch (IOException e) {
-            throw new ConfigNotFoundException(e);
-        }
-
-        if (Objects.isNull(exConfig))
-            throw new ConfigNotFoundException();
-        return exConfig;
+    private enum
+    AvailableExtension {
+        XML,JSON
     }
+    public static ExConfig find() throws ConfigNotFoundException {
+        ClassLoader rootClassLoader = ExLogger.class.getClassLoader();
+        String physicalPath = null;
+        for (AvailableExtension extension : AvailableExtension.values()) {
+            String fileName = CONFIG_FILENAME + "." + extension.toString().toLowerCase();
+            try {
+               physicalPath = rootClassLoader.getResource(fileName).getPath();
+            }
+            catch (NullPointerException e) {
+                /*NOP*/
+            }
+            if (physicalPath != null) {
+                Path transformedPath = Paths.get(physicalPath.substring(1, physicalPath.length()));
+                Path absolutePath = transformedPath.toAbsolutePath();
+                System.out.println(absolutePath.toString());
 
-    private static class FileVisitor  extends SimpleFileVisitor<Path> {
-        private ExConfig result;
+                switch (extension) {
+                    case XML: {
+                        //TODO: return XMLConfigParser.parse(path);
+                        break;
+                    }
 
-        @Override
-        public FileVisitResult visitFile(Path file, BasicFileAttributes attributes) throws IOException {
-            System.out.println(file.getFileName().toAbsolutePath().toString());
-            //TODO: добавить реализацию метода
-            return FileVisitResult.CONTINUE;
+                    case JSON: {
+                        //TODO: return JSONConfigParser.parse(path);
+                        break;
+                    }
+                }
+            }
         }
-
-        public ExConfig getResult() {
-            return result;
-        }
+        throw new ConfigNotFoundException();
     }
 }

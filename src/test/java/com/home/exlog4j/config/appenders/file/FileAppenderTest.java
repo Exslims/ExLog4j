@@ -1,8 +1,7 @@
 package com.home.exlog4j.config.appenders.file;
 
 import com.home.exlog4j.Level;
-import com.home.exlog4j.config.appenders.file.FileAppender;
-import com.home.exlog4j.config.appenders.file.FileAppenderBuilder;
+import com.home.exlog4j.config.appenders.file.builder.FileAppenderBuilder;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
