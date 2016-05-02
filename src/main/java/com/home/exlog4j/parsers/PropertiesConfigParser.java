@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 public class PropertiesConfigParser implements Parser {
 
-    private HashMap<String, ExConfig> configs = new HashMap<String, ExConfig>();
+    private HashMap<String, ExConfig> configs = new HashMap<>();
     public HashMap<String, ExConfig> getConfigs(String path) {
         return null;
     }

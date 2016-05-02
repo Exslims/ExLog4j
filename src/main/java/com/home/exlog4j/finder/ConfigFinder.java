@@ -7,18 +7,25 @@ import java.nio.file.Paths;
 
 public class ConfigFinder {
 
-    public static String find(String configFileName) throws ConfigNotFoundException {
+    private static final String CONFIG_FILENAME = "exlog4j-config";
+    private enum AvailableExtension {XML,JSON}
+
+    public static String find() throws ConfigNotFoundException {
         ClassLoader rootClassLoader = ExLogger.class.getClassLoader();
         String physicalPath = null;
-        try {
-            physicalPath = rootClassLoader.getResource(configFileName).getPath();
-        } catch (NullPointerException e) {
+
+        for (AvailableExtension extension : AvailableExtension.values()) {
+            String fileName = CONFIG_FILENAME + "." + extension.toString().toLowerCase();
+            try {
+                physicalPath = rootClassLoader.getResource(fileName).getPath();
+            } catch (NullPointerException e) {
                 /*NOP*/
-        }
-        if (physicalPath != null) {
-            Path transformedPath = Paths.get(physicalPath.substring(1, physicalPath.length()));
-            Path absolutePath = transformedPath.toAbsolutePath();
-            return absolutePath.toString();
+            }
+            if (physicalPath != null) {
+                Path transformedPath = Paths.get(physicalPath.substring(1, physicalPath.length()));
+                Path absolutePath = transformedPath.toAbsolutePath();
+                return absolutePath.toString();
+            }
         }
         throw new ConfigNotFoundException();
     }
