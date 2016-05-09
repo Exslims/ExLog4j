@@ -2,12 +2,12 @@
 <exlogger>
     <profile name="profile1">
         <appender type="console">
-            <pattern>testPattern</pattern>
+            <pattern>date{yyyy-MM-dd HH:mm:ss} %level %target %message</pattern>
         </appender>
     </profile>
-    <profile name="profile1">
+    <profile name="profile2">
         <appender type="console">
-            <pattern>testPattern</pattern>
+            <pattern>date{yyyy-MM-dd HH:mm:ss} %level %target %message</pattern>
         </appender>
     </profile>
 </exlogger>

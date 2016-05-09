@@ -7,6 +7,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+/**
+ *
+ */
 public class FileAppender extends Appender {
     public static final int KB = 1024;
     public static final int MB = 1024 * KB;
@@ -25,6 +28,17 @@ public class FileAppender extends Appender {
         this.maxBufferSize = 2 * KB;
         this.currentFileIndex = 1;
         this.maxFileSize = 2 * MB;
+        this.registerShutdownHook();
+    }
+
+
+    private void registerShutdownHook() {
+        Runtime runtime = Runtime.getRuntime();
+        runtime.addShutdownHook(new Thread(
+                () -> {
+                    writer.flush();
+                }
+        ));
     }
 
     public FileAppender(String pattern,
@@ -60,9 +74,8 @@ public class FileAppender extends Appender {
         String line = this.patternLayout.getFormattedMessage(level , message , target);
         writer.println(line);
         currentBufferSize += line.getBytes().length;
-        System.out.println("CBS" + currentBufferSize);
-        System.out.println("MBS" + maxBufferSize);
-
+//        System.out.println("CBS" + currentBufferSize);
+//        System.out.println("MBS" + maxBufferSize);
         currentFileSize += currentBufferSize;
         if (currentBufferSize > maxBufferSize) {
             this.writer.flush();
@@ -70,8 +83,8 @@ public class FileAppender extends Appender {
         }
 
 
-        System.out.println(currentFileSize);
-        System.out.println(currentBufferSize);
+//        System.out.println(currentFileSize);
+//        System.out.println(currentBufferSize);
         if (currentFileSize >= maxFileSize) {
             try {
                 File logFile = new File(fileName + " - " + currentFileIndex);

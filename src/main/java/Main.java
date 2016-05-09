@@ -6,8 +6,12 @@ import com.home.exlog4j.Logger;
  */
 public class Main {
     public static void main(String[] args) {
-        Logger logger = ExLogger.getLogger("");
+        Logger logger = ExLogger.getLogger("application-profile");
         logger.debug("Hello , debug");
-        logger.error("Error message" , new RuntimeException("Text exception"));
+
+        for (int i = 0; i < 2000; i++) {
+            logger.error("Error message" , new RuntimeException("Text exception"));
+        }
+
     }
 }

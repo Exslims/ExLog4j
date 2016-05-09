@@ -1,19 +1,22 @@
 package com.home.exlog4j.finder;
 
 import com.home.exlog4j.ExLogger;
+import com.home.exlog4j.parsers.ParsersType;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+/**
+ *
+ */
 public class ConfigFinder {
 
     private static final String CONFIG_FILENAME = "exlog4j-config";
     private enum AvailableExtension {XML,JSON}
 
-    public static String find() throws ConfigNotFoundException {
+    public ConfigInfo findConfiguration() throws ConfigNotFoundException {
         ClassLoader rootClassLoader = ExLogger.class.getClassLoader();
         String physicalPath = null;
-
         for (AvailableExtension extension : AvailableExtension.values()) {
             String fileName = CONFIG_FILENAME + "." + extension.toString().toLowerCase();
             try {
@@ -24,7 +27,7 @@ public class ConfigFinder {
             if (physicalPath != null) {
                 Path transformedPath = Paths.get(physicalPath.substring(1, physicalPath.length()));
                 Path absolutePath = transformedPath.toAbsolutePath();
-                return absolutePath.toString();
+                return new ConfigInfo(absolutePath.toString() , ParsersType.valueOf(extension.toString()));
             }
         }
         throw new ConfigNotFoundException();

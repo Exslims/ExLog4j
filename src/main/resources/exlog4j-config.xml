@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <exlogger>
-    <profile name="testProfile">
+    <profile name="application-profile">
         <appender type="file">
-            <pattern>testPattern</pattern>
+            <pattern>%level %target %- %message</pattern>
             <file>
-                <fileName>Test.log</fileName>
+                <fileName>Application.log</fileName>
+                <pattern>%level %target %- %message</pattern>
+                <maxFileSize>100MB</maxFileSize>
+                <maxBufferSize>1KB</maxBufferSize>
+                <autoFlush>true</autoFlush>
             </file>
+        </appender>
+        <appender type="console">
+            <pattern>%level %target %- %message</pattern>
         </appender>
     </profile>
 </exlogger>

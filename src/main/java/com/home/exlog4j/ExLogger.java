@@ -3,6 +3,9 @@ package com.home.exlog4j;
 import com.home.exlog4j.config.ExConfig;
 import org.apache.commons.lang.exception.ExceptionUtils;
 
+/**
+ *
+ */
 public class ExLogger implements Logger {
 
     private static ConfigsContainer configsContainer = ConfigsContainer.getInstance();

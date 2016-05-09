@@ -1,5 +1,8 @@
 package com.home.exlog4j.parsers;
 
+import com.home.exlog4j.parsers.json.JsonConfigParser;
+import com.home.exlog4j.parsers.properties.PropertiesConfigParser;
+import com.home.exlog4j.parsers.xml.XmlConfigParser;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

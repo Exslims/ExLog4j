@@ -1,5 +1,8 @@
 package com.home.exlog4j;
 
+/**
+ * Base logger interface, has {@link ExLogger} implementation
+ */
 public interface Logger {
     void trace(Object message);
     void debug(Object message);

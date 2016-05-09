@@ -18,11 +18,11 @@ import static org.junit.Assert.assertTrue;
 
 
 public class FileAppenderTest {
-    public static final String LAYOUT = "%level %target %- %message";
-    public static final String FILE_NAME = "test.log";
-    public static final String EMPTY_STRING = "";
-    public static final int MAX_FILE_SIZE = 1024;
-    public static final int MAX_BUFFER_SIZE = 8;
+    private static final String LAYOUT = "%level %target %- %message";
+    private static final String FILE_NAME = "test.log";
+    private static final String EMPTY_STRING = "";
+    private static final int MAX_FILE_SIZE = 1024;
+    private static final int MAX_BUFFER_SIZE = 8;
     private FileAppender fileAppender;
 
     @Rule

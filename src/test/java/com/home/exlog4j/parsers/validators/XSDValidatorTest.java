@@ -41,6 +41,8 @@ public class XSDValidatorTest {
     public void testValidateCorrectlyCase2() throws Exception {
         assertTrue(XSDValidator.validateXMLSchema(XML_CONFIG_PATH + "/corrCase2.xml",XSD_PATH));
     }
+
+    @Ignore
     @Test
     public void testValidateCorrectlyCase3() throws Exception {
         assertTrue(XSDValidator.validateXMLSchema(XML_CONFIG_PATH + "/corrCase3.xml",XSD_PATH));

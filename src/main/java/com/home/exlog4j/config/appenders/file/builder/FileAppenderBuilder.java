@@ -2,6 +2,10 @@ package com.home.exlog4j.config.appenders.file.builder;
 
 import com.home.exlog4j.config.appenders.file.FileAppender;
 
+/**
+ * Builder class for {@link FileAppender}
+ * helps to create FileAppender instances
+ */
 public class FileAppenderBuilder {
 
     private String fileName;

@@ -1,7 +1,10 @@
 package com.home.exlog4j.config.appenders;
 
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Builder of log string.
@@ -27,7 +30,7 @@ public class PatternLayout {
     public PatternLayout(){}
 
     private void parse() {
-        priority = new LinkedList<String>();
+        priority = new LinkedList<>();
 
         List<String> tokens = Arrays.asList(pattern.split("%"));
         for (String token :tokens) {

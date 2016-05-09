@@ -1,42 +1,33 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:element name="exlogger">
         <xs:complexType>
             <xs:sequence>
-                <xs:element maxOccurs="unbounded" ref="profile"/>
+                <xs:element name="profile" maxOccurs="unbounded" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="appender" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:string" name="pattern"/>
+                                        <xs:element name="file" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element type="xs:string" name="fileName"/>
+                                                    <xs:element type="xs:string" name="maxFileSize" minOccurs="0"/>
+                                                    <xs:element type="xs:string" name="maxBufferSize" minOccurs="0"/>
+                                                    <xs:element type="xs:string" name="autoFlush" minOccurs="0"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:string" name="type" use="optional"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute type="xs:string" name="name" use="optional"/>
+                    </xs:complexType>
+                </xs:element>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    <xs:element name="profile">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="appender"/>
-            </xs:sequence>
-            <xs:attribute name="name" use="required" type="xs:NCName"/>
-        </xs:complexType>
-    </xs:element>
-    <xs:element name="appender">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="pattern" minOccurs="1" maxOccurs="1"/>
-                <xs:element minOccurs="0" ref="file"/>
-            </xs:sequence>
-            <xs:attribute name="type" use="required" type="xs:NCName"/>
-        </xs:complexType>
-    </xs:element>
-    <xs:element name="pattern" type="xs:NCName"/>
-    <xs:element name="file">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="fileName" minOccurs="1" maxOccurs="1"/>
-                <xs:element ref="maxFileSize" minOccurs="0" maxOccurs="1"/>
-                <xs:element ref="maxBufferSize" minOccurs="0" maxOccurs="1"/>
-                <xs:element ref="autoFlush" minOccurs="0" maxOccurs="1"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-    <xs:element name="fileName" type="xs:NCName"/>
-    <xs:element name="maxFileSize" type="xs:NMTOKEN"/>
-    <xs:element name="maxBufferSize" type="xs:NMTOKEN"/>
-    <xs:element name="autoFlush" type="xs:boolean"/>
 </xs:schema>
