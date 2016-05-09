@@ -87,7 +87,12 @@ public class FileAppender extends Appender {
         }
     }
 
-
+    /**
+     * Sends message into appender
+     * @param level  message level
+     * @param message message object
+     * @param target target class
+     */
     @Override
     public void sendMessage(String level,String message,String target) {
         long currentBufferSize = 0;
@@ -187,7 +192,7 @@ public class FileAppender extends Appender {
      *
      * @param maxBufferSize
      *     allowed object is
-     *     {@link Boolean }
+     *     {@link Long }
      *
      */
     public void setMaxBufferSize(long maxBufferSize) {
@@ -199,7 +204,7 @@ public class FileAppender extends Appender {
      *
      * @return
      *     possible object is
-     *     {@link Boolean }
+     *     {@link Long }
      *
      */
     public boolean isAutoFlush() {
