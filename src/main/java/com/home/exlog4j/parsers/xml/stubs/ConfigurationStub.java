@@ -467,7 +467,7 @@ public class ConfigurationStub {
                  * 
                  * @param value
                  *     allowed object is
-                 *     {@link String }
+                 *     {@link Boolean }
                  *     
                  */
                 public void setAutoFlush(String value) {

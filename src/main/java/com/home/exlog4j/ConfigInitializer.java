@@ -12,14 +12,17 @@ import java.util.LinkedHashMap;
 import java.util.Optional;
 
 /**
- *
+ * Contains all configuration files
  */
 public class ConfigInitializer {
 
+    /**
+     * HashMap which contains ExConfig
+     */
     private HashMap<String , ExConfig> configHashMap;
 
     /**
-     *
+     * Finds configuration
      * @return HashMap of configuration files
      */
     public HashMap<String,ExConfig> getConfigs() {
@@ -33,8 +36,8 @@ public class ConfigInitializer {
     }
 
     /**
-     *
-     * @return optional value of configuration info
+     *  Finds configuration and wrap it in Optional<T> monad
+     *  @return optional value of configuration info
      */
     private Optional<ConfigInfo> findConfiguration() {
         ConfigInfo configInfo = null;

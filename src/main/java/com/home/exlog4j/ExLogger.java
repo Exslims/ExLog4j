@@ -4,16 +4,31 @@ import com.home.exlog4j.config.ExConfig;
 import org.apache.commons.lang.exception.ExceptionUtils;
 
 /**
- *
+ * Implementation of {@link Logger} interface
  */
 public class ExLogger implements Logger {
 
+    /**
+     * Singleton instance of ConfigsContainer
+     */
     private static ConfigsContainer configsContainer = ConfigsContainer.getInstance();
 
-    public static ExLogger getLogger(String targetClassName , String profileName){
-        return new ExLogger(targetClassName , profileName);
+
+    /**
+     * Constructs new ExLogger instance by targetClass and profileName
+     * @param targetClass class parameter
+     * @param profileName name of target profile
+     * @return new constructed ExLogger instance
+     */
+    public static ExLogger getLogger(Class targetClass , String profileName){
+        return new ExLogger(targetClass.getSimpleName() , profileName);
     }
 
+    /**
+     * Constructs new ExLogger instance by profileName
+     * @param profileName name of target profile
+     * @return new constructed ExLogger instance
+     */
     public static ExLogger getLogger(String profileName){
         return new ExLogger(ExLogger.detectClassName() , profileName);
     }
@@ -34,6 +49,7 @@ public class ExLogger implements Logger {
     public void debug(Object message) {
         this.log(Level.DEBUG , message , targetClassName);
     }
+
 
     public void info(Object message) {
         this.log(Level.INFO , message , targetClassName);
@@ -86,7 +102,7 @@ public class ExLogger implements Logger {
 
     private static String detectClassName() {
         StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
-        StackTraceElement stackTraceElement = stackTraceElements[1];
+        StackTraceElement stackTraceElement = stackTraceElements[stackTraceElements.length-1];
         return stackTraceElement.getClassName();
     }
 }

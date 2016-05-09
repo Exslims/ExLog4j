@@ -7,13 +7,25 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 /**
- *
+ * Finds configuration in external classpath using {@link ExLogger} classloader
  */
 public class ConfigFinder {
 
     private static final String CONFIG_FILENAME = "exlog4j-config";
-    private enum AvailableExtension {XML,JSON}
 
+    /**
+     * Enumeration that represent available extension for configuration file
+     */
+    private enum AvailableExtension {
+        XML,
+        JSON
+    }
+
+    /**
+     * Gets information about found configuration
+     * @return new instance of  {@link ConfigInfo}
+     * @throws ConfigNotFoundException when configuration file is not found
+     */
     public ConfigInfo findConfiguration() throws ConfigNotFoundException {
         ClassLoader rootClassLoader = ExLogger.class.getClassLoader();
         String physicalPath = null;

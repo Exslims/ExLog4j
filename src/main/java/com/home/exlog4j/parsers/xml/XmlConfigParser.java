@@ -22,13 +22,19 @@ import java.util.function.Function;
 
 
 /**
- *
+ * Implementation of {@link Parser} that used to parse XML configuration
  */
 public class XmlConfigParser implements Parser {
 
 
-        private HashMap<String , Function<ConfigurationStub.Profile.Appender,Appender>> functionHashMap;
+    /**
+     * HashMap that contains appender node handlers
+     */
+    private HashMap<String , Function<ConfigurationStub.Profile.Appender,Appender>> functionHashMap;
 
+        /**
+         * Constructs new XmlConfigParser instance
+         * */
         public XmlConfigParser() {
             this.functionHashMap = new HashMap<>();
 
@@ -53,6 +59,11 @@ public class XmlConfigParser implements Parser {
             this.functionHashMap.put("console" , (appender)-> new ConsoleAppender(appender.getPattern()));
         }
 
+    /**
+     *
+     * @param path path to configuration file
+     * @return HashMap which allows you to get ExConfig instance by certain key
+     */
         @Override
         public HashMap<String, ExConfig> getConfigs(String path) {
             HashMap<String, ExConfig> configHashMap = new LinkedHashMap<>();
@@ -73,7 +84,6 @@ public class XmlConfigParser implements Parser {
             });
             return configHashMap;
         }
-
 
         private Optional<ConfigurationStub> deserializeConfiguration(String path) {
             Optional<ConfigurationStub> optional = Optional.empty();
@@ -106,9 +116,6 @@ public class XmlConfigParser implements Parser {
                     break;
                 }
             }
-//            System.out.println("Raw  = " + rawValue);
-//            System.out.println("Unit = " + unit);
-//            System.out.println("Extracted = " + extracted);
             return extracted;
         }
 
