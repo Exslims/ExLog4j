@@ -1,3 +1,5 @@
+package examples;
+
 import com.home.exlog4j.ExLogger;
 import com.home.exlog4j.Logger;
 
