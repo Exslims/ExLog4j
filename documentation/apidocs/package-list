@@ -1,0 +1,13 @@
+com.home.exlog4j
+com.home.exlog4j.config
+com.home.exlog4j.config.appenders
+com.home.exlog4j.config.appenders.console
+com.home.exlog4j.config.appenders.file
+com.home.exlog4j.config.appenders.file.builder
+com.home.exlog4j.finder
+com.home.exlog4j.parsers
+com.home.exlog4j.parsers.json
+com.home.exlog4j.parsers.properties
+com.home.exlog4j.parsers.validators
+com.home.exlog4j.parsers.xml
+com.home.exlog4j.parsers.xml.stubs
