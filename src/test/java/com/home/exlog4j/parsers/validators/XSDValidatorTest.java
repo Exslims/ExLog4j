@@ -42,11 +42,6 @@ public class XSDValidatorTest {
         assertTrue(XSDValidator.validateXMLSchema(XML_CONFIG_PATH + "/corrCase2.xml",XSD_PATH));
     }
 
-//    @Ignore
-//    @Test
-//    public void testValidateCorrectlyCase3() throws Exception {
-//        assertTrue(XSDValidator.validateXMLSchema(XML_CONFIG_PATH + "/corrCase3.xml",XSD_PATH));
-//    }
     @Test
     public void testValidateCorrectlyCase4() throws Exception {
         assertTrue(XSDValidator.validateXMLSchema(XML_CONFIG_PATH + "/corrCase4.xml",XSD_PATH));
@@ -59,16 +54,4 @@ public class XSDValidatorTest {
     public void testValidateCorrectlyCase6() throws Exception {
         assertTrue(XSDValidator.validateXMLSchema(XML_CONFIG_PATH + "/corrCase6.xml",XSD_PATH));
     }
-
-//    @Ignore
-//    @Test
-//    public void testValidateCorrectlyCase7() throws Exception {
-//        assertTrue(XSDValidator.validateXMLSchema(XML_CONFIG_PATH + "/corrCase7.xml",XSD_PATH));
-//    }
-//
-//    @Ignore
-//    @Test
-//    public void testValidateCorrectlyCase8() throws Exception {
-//        assertTrue(XSDValidator.validateXMLSchema(XML_CONFIG_PATH + "/corrCase8.xml",XSD_PATH));
-//    }
 }
